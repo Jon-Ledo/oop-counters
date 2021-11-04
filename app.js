@@ -11,11 +11,13 @@ function Counter (element, value) {
   // set starting count
   this.valueNum.textContent = this.value
 
-  // this.resetBtn.addEventListener('click', this.reset.bind(element))
+  // left of the dot is the button, so we need to redirect what this should point to (counter) using .bind(this)
+  this.resetBtn.addEventListener('click', this.reset.bind(this))
+  this.increaseBtn.addEventListener('click', this.increase.bind(this))
+  this.decreaseBtn.addEventListener('click', this.decrease.bind(this))
 }
 
 Counter.prototype.increase = function() {
-  console.log(this);
   this.value++
   this.valueNum.textContent = this.value
 }
@@ -25,7 +27,6 @@ Counter.prototype.decrease = function() {
 }
 Counter.prototype.reset = function() {
   this.value = 0
-  console.log(this.value, this);
   this.valueNum.textContent = this.value
 }
 
